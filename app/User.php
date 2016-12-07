@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'wechat'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +36,14 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function loginWay()
+    {
+        empty($this->name) || starts_with($this->name, 'unnamed_') || $way['name'] = 1;
+        empty($this->email) || starts_with($this->email, 'none@email.') || $way['email'] = 1;
+        empty($this->wechat) || $way['wechat'] = 1;
+        empty($this->qq) || $way['qq'] = 1;
+
+        return $way ?: [];
+    }
 }

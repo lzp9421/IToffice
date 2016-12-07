@@ -13,12 +13,12 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => '账号或密码错误！',
+    'throttle' => '登录失败次数过多，请于 :seconds 秒后重试！',
 
     'wechat' => [
-        'binded' => 'You had binded WeChat :nickname ，please unbinding first.',
-        'unbind' => 'You did not bind WeChat, please binding first.',
-        'only' => 'The WeChat way is the only login this account, can not unbundling.',
+        'binded' => '你已经绑定了微信 :nickname ，请先解绑！',
+        'unbind' => '你还没有绑定了微信，请先绑定！',
+        'only' => '该微信是此帐号的唯一登录方式，无法解绑！',
     ]
 ];
