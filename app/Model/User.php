@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -45,5 +45,10 @@ class User extends Model implements AuthenticatableContract,
         empty($this->qq) || $way['qq'] = 1;
 
         return $way ?: [];
+    }
+
+    public function Reports()
+    {
+        return $this->hasMany('App\Model\Report');
     }
 }

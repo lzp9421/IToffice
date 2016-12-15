@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Model\User;
 use Faker\Provider\Uuid;
 use Illuminate\Support\Str;
 use Validator;

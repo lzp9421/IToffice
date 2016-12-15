@@ -1,27 +1,86 @@
-## Laravel PHP Framework
+## 多用户(users) ##
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+### 注册 ###
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### 登录、登出 ###
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### 找回密码 ###
 
-## Official Documentation
+### 微信登录 ###
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## 工作报告 ##
 
-## Contributing
+> - `工作报告`数据表(reports)
+> 
+>  0. ID(id)
+>  0. 分类(classification_id)
+>  0. 地点(address)
+>  0. 描述(description)
+>  0. 备注(remark)
+>  0. 添加人(user_id)
+>  0. 创建时间(created_at)
+>  0. 修改时间(updated_at)
+>  
+> ---
+> - `报告分类`数据表(classifications)
+> 
+>  0. ID(id)
+>  0. 分类名(name)
+>  0. 创建时间(created_at)
+>  0. 修改时间(updated_at)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+### 条件查询（index） ###
 
-## Security Vulnerabilities
+按时间、添加人员、事件分类等信息进行查询
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### 导出（export） ###
 
-### License
+按时间、添加人员、事件分类等信息导出Excel表格
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+### 添加一条工作报告（create、store） ###
+
+### 查看一条工作报告详情（show） ###
+
+查看工作报告
+
+### 编辑（更新）一条工作报告（edit、update） ###
+
+### 删除一条工作报告（destory） ###
+
+## 物品管理 ##
+
+> - 数据表(assets)
+> 
+>  0. 物品ID（id）
+>  0. 物品名（name）
+>  0. 备注（remark）
+>  0. 物品状态：正常|借出|已报废（status）
+>  0. 创建时间(created_at)
+>  0. 修改时间(updated_at)
+>  
+> - 数据表(details)
+> 
+>  0. 历史记录ID（id）
+>  0. 物品ID（asset_id）
+>  0. 借出人（name）
+>  0. 电话（cellphone）
+>  0. 备注（remark）
+>  0. 预计归还时间（return_time）
+>  0. 创建时间(created_at)
+>  0. 修改时间(updated_at)
+
+### 查询概况（index） ###
+
+### 导出（export） ###
+
+### 添加物品（create、store） ###
+
+### 查看物品详情(show) ###
+
+### 修改（edit、store） ###
+
+### 删除（destory） ###
+
+### 登记借出信息 ###
+
+### 归还 ###

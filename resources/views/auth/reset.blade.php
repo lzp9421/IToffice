@@ -1,3 +1,5 @@
+@include('layout.header', ['title' => '登录'])
+
 <!-- resources/views/auth/reset.blade.php -->
 @if (count($errors) > 0)
     <div class="alert alert-danger">
@@ -8,25 +10,33 @@
         </ul>
     </div>
 @endif
-<form method="POST" action="/password/reset">
+<form method="POST" action="/password/reset" class="am-form am-form-inline">
     {!! csrf_field() !!}
-    <input type="hidden" name="token" value="{{ $token }}">
+    <fieldset>
+        <legend>表单标题</legend>
+        <input type="hidden" name="token" value="{{ $token }}">
 
-    <div>
-        <input type="email" name="email" value="{{ old('email') }}">
-    </div>
+        <div class="am-form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{ old('email') }}">
+        </div>
 
-    <div>
-        <input type="password" name="password">
-    </div>
+        <div class="am-form-group">
+            <label for="password">Email</label>
+            <input type="password" name="password" id="password">
+        </div>
 
-    <div>
-        <input type="password" name="password_confirmation">
-    </div>
+        <div class="am-form-group">
+            <label for="password_confirmation">Email</label>
+            <input type="password" name="password_confirmation" id="password_confirmation">
+        </div>
 
-    <div>
-        <button type="submit">
-            Reset Password
-        </button>
-    </div>
+        <div>
+            <button type="submit">
+                Reset Password
+            </button>
+        </div>
+    </fieldset>
 </form>
+
+@include('layout.footer')

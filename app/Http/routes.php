@@ -41,3 +41,12 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // 密码重置路由...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+Route::get('test', 'TestController@test');
+
+Route::group(['middleware' => 'auth'], function() {
+
+    Route::post('report/upload', 'ReportController@upload');
+    Route::resource('report', 'ReportController');
+
+});

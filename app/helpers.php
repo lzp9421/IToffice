@@ -85,3 +85,32 @@ if(!function_exists('mail_address')) {
         }
     }
 }
+
+if(!function_exists('error')) {
+    function error($info = ['error'], $redirect = null) {
+        if(\Request::ajax()) {
+            return \Response::json(['status' => 'error', 'data' => (array)$info]);
+        } elseif(is_callable($redirect)) {
+            return call_user_func($redirect);
+        } elseif(empty($redirect)) {
+            return back()->withErrors((array)$info)->withInput();
+        } else {
+            return redirect(url($redirect))->withErrors((array)$info)->withInput();
+        }
+    }
+}
+
+
+if(!function_exists('success')) {
+    function success($info = 'success', $redirect = null) {
+        if(\Request::ajax()) {
+            return \Response::json(['status' => 'success', 'info' => (string)$info]);
+        } elseif(is_callable($redirect)) {
+            return call_user_func($redirect);
+        } elseif(empty($redirect)) {
+            return back()->with(['info' => (string)$info]);
+        } else {
+            return redirect(url($redirect))->with(['info' => (string)$info]);
+        }
+    }
+}
