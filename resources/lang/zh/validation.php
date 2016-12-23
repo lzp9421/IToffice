@@ -56,7 +56,7 @@ return [
         'array'   => 'The :attribute must have at least :min items.',
     ],
     'not_in'               => 'The selected :attribute is invalid.',
-    'numeric'              => 'The :attribute must be a number.',
+    'numeric'              => ':attribute 必须是数字。',
     'regex'                => 'The :attribute format is invalid.',
     'required'             => ':attribute 不能为空。',
     'required_if'          => 'The :attribute field is required when :other is :value.',

@@ -53,10 +53,11 @@
 > 
 >  0. 物品ID（id）
 >  0. 物品名（name）
->  0. 备注（remark）
+>  0. 描述（description）
 >  0. 物品状态：正常|借出|已报废（status）
 >  0. 创建时间(created_at)
 >  0. 修改时间(updated_at)
+>  0. 删除时间(deleted_at)
 >  
 > - 数据表(details)
 > 

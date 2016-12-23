@@ -49,4 +49,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('report/upload', 'ReportController@upload');
     Route::resource('report', 'ReportController');
 
+
+    Route::resource('asset', 'AssetController');
+    Route::resource('detail', 'DetailController');
+
 });

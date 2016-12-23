@@ -25,7 +25,7 @@
             @endif
             <fieldset>
                 <legend>表单标题</legend>
-                <input type="hidden" name="_method" value="PUT"/>
+                <input type="hidden" name="_method" value="PUT">
                 <div class="am-g am-margin-top">
                     <div class="am-u-sm-4 am-u-md-2 am-text-right">
                         分类

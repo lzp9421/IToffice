@@ -6,6 +6,8 @@
  * Time: 8:50
  */
 
+use Illuminate\Contracts\Routing\UrlGenerator;
+
 if (!function_exists('asset_cdn')) {
     /**
      * 将相对路径映射到cdn服务获取静态资源
@@ -89,7 +91,7 @@ if(!function_exists('mail_address')) {
 if(!function_exists('error')) {
     function error($info = ['error'], $redirect = null) {
         if(\Request::ajax()) {
-            return \Response::json(['status' => 'error', 'data' => (array)$info]);
+            return \Response::json(['status' => 'error', 'info' => (array)$info]);
         } elseif(is_callable($redirect)) {
             return call_user_func($redirect);
         } elseif(empty($redirect)) {
@@ -112,5 +114,11 @@ if(!function_exists('success')) {
         } else {
             return redirect(url($redirect))->with(['info' => (string)$info]);
         }
+    }
+}
+
+if(!function_exists('url_append')) {
+    function url_append($request, $params = []) {
+        return $request->url() . '?' . http_build_query(array_merge($request->all(), (array)$params));
     }
 }
