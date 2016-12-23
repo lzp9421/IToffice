@@ -118,7 +118,7 @@ if(!function_exists('success')) {
 }
 
 if(!function_exists('url_append')) {
-    function url_append($request, $params = []) {
-        return $request->url() . '?' . http_build_query(array_merge($request->all(), (array)$params));
+    function url_append($params = []) {
+        return Request::url() . '?' . http_build_query(array_merge(Request::all(), (array)$params));
     }
 }

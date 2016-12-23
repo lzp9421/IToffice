@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use Validator;
 use DB;
+use Excel;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -26,29 +27,60 @@ class DetailController extends Controller
         $asset_id = $request->asset_id;
         $direction = $request->direction;
         $institutions = $request->institutions;
+        $export = $request->export;
 
         $details = Detail::orderBy('created_at', 'desc')->with('Asset');
         if($asset_id) {
-            $nav .= '<a href="' . action('DetailController@index', ['asset_id' => $asset_id]) . '">' .
-                ($nav ? '/' : '') . Asset::find($asset_id)->name .
-                '</a>';
+            $nav .= '/<small><a href="' . action('DetailController@index', ['asset_id' => $asset_id]) . '">' .
+                Asset::find($asset_id)->name .
+                '</a></small>';
             $details->where('asset_id', $asset_id);
         }
         if($direction) {
-            $nav .= '<a href="' . action('DetailController@index', ['direction' => $direction]) . '">' .
-                ($nav ? '/' : '') . Detail::getDirectionAttribute($direction) .
-                '</a>';
+            $nav .= '/<small><a href="' . action('DetailController@index', ['direction' => $direction]) . '">' .
+                Detail::getDirectionAttribute($direction) .
+                '</a></small>';
             $details->where('direction', $direction);
         }
         if($institutions) {
-            $nav .= '<a href="' . action('DetailController@index', ['institutions' => $institutions]) . '">' .
-                ($nav ? '/' : '') . $institutions .
-                '</a>';
+            $nav .= '/<small><a href="' . action('DetailController@index', ['institutions' => $institutions]) . '">' .
+                $institutions .
+                '</a></small>';
             $details->where('institutions', $institutions);
         }
 
+        if ($export == 1) {
+            $details = $details->get();//不分页
+            //导出Excel
+            $data = [['序号', '物品名', '动向', '数量', '来源或去向', '当事人', '联系方式', '备注', '时间']];
+            foreach ($details as $key => $detail) {
+                $data[] = [
+                    $key, //'序号',
+                    $detail->asset->name, //'物品名',
+                    $detail->direction, //'动向',
+                    (string)$detail->quantity, //'数量',
+                    $detail->isIncrease() ? $detail->site . '-->办公室' : '办公室-->' . $detail->site, //'来源或去向',
+                    $detail->institutions, //'当事人',
+                    "'".$detail->contact, //'联系方式',
+                    $detail->remark, //'备注',
+                    $detail->created_at, //'时间'
+                ];
+            }
+            Excel::create('物品记录报告',function($excel) use ($data){
+                $excel->sheet('物品记录报告', function($sheet) use ($data){
+                    $sheet->rows($data);
+//                    $sheet->setColumnFormat([
+//                        'G' => '@',
+//                    ]);
+                    $sheet->row(1, function($row) {
+                        // call cell manipulation methods
+                        $row->setFontWeight('bold');
+                    });
+                });
+            })->export('xlsx');
+        }
         $details = $details->get();
-        return view('details.index', ['details' => $details, 'nav' => $nav, 'request' => $request]);
+        return view('details.index', ['details' => $details, 'nav' => $nav]);
     }
 
     /**
@@ -154,7 +186,7 @@ class DetailController extends Controller
     public function edit($id)
     {
         //
-        $detail = Asset::with('Asset')->find($id);
+        $detail = Detail::with('Asset')->find($id);
         return view('details.edit', ['detail' => $detail]);
     }
 

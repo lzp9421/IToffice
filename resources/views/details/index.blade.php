@@ -5,24 +5,23 @@
     <div class="details-content-body">
 
         <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><a href="{{ url('detail') }}">出入库记录</a></strong> / {!! $nav or '<small>全部</small>' !!}</div>
+            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><a href="{{ url('detail') }}">出入库记录</a></strong> / <small><a href="{{ url('detail') }}">全部</a></small>{!! $nav or '' !!}</div>
         </div>
 
         <hr>
 
         <div class="am-g am-padding-vertical">
-            <div class="am-u-sm-12 am-u-md-4">
+            <div class="am-u-sm-9 am-u-md-4">
                 <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-sm">
-                        <a href="{{ url('detail/create') }}" class="am-btn am-btn-sm am-btn-primary"><span class="am-icon-plus"></span> 新增</a>
+                        <a href="{{ url('detail/create') }}" class="am-btn am-btn-sm am-btn-primary"><span class="am-icon-plus">&nbsp;</span>新增</a>
                         <a href="javascript:void(0);" class="am-btn am-btn-sm am-btn-default" data-am-modal="{target: '#select-modal', closeViaDimmer: 0}"><span class="am-icon-plus"></span> 筛选</a>
                     </div>
                 </div>
             </div>
-            <div class="am-u-sm-12 am-u-md-3">
-                <div class="am-input-group am-input-group-sm">
-                    <input type="text" class="am-form-field">
-                    <span class="am-input-group-btn"><button class="am-btn am-btn-default" type="button">搜索</button></span>
+            <div class="am-u-sm-3 am-u-md-2 am-padding-left">
+                <div class="am-btn-group am-btn-group-sm">
+                    <a href="{{ url_append(['export' => 1]) }}" class="am-btn am-btn-sm am-btn-default"><span class="am-icon-download">&nbsp;</span>导出</a>
                 </div>
             </div>
         </div>
@@ -59,11 +58,11 @@
                         @foreach($details as $detail)
                             <tr>
                                 <td class="am-hide-sm-only">{{ $detail->id }}</td>
-                                <td><a href="{{ url_append($request, $params = ['asset_id' => $detail->Asset->id]) }}">{{ $detail->Asset->name }}</a></td>
-                                <td><a href="{{ url_append($request, $params = ['direction' => $detail->getOriginal('direction')]) }}">{{ $detail->direction }}</a></td>
+                                <td><a href="{{ url_append(['asset_id' => $detail->Asset->id]) }}">{{ $detail->Asset->name }}</a></td>
+                                <td><a href="{{ url_append(['direction' => $detail->getOriginal('direction')]) }}">{{ $detail->direction }}</a></td>
                                 <td class="am-hide-sm-only">{{ $detail->isIncrease() ? $detail->site . '-->办公室' : '办公室-->' . $detail->site }}</td>
                                 <td>{{ $detail->quantity }}</td>
-                                <td><a href="{{ url_append($request, $params = ['institutions' => $detail->getOriginal('institutions')]) }}">{{ $detail->institutions }}</a></td>
+                                <td><a href="{{ url_append(['institutions' => $detail->getOriginal('institutions')]) }}">{{ $detail->institutions }}</a></td>
                                 <td class="am-hide-sm-only">{{ $detail->contact }}</td>
                                 <td class="am-hide-sm-only">{{ $detail->remark }}</td>
                                 <td class="am-hide-sm-only">{{ $detail->created_at }}</td>
@@ -72,14 +71,14 @@
                                         <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" id="operation" data-am-dropdown-toggle=""><span class="am-icon-cog"></span> 操作 <span class="am-icon-caret-down"></span></button>
                                         <ul class="am-dropdown-content">
                                             <li class="am-warning"><a href="javascript:void(0);" class="detail-delete" delete-uri="{{ url('detail/' . $detail->id) }}">删除</a></li>
-                                            <li class="am-default"><a href="{{ url('detail/'. $detail->id .'/edit') }}">编辑</a></li>
+                                            <!--<li class="am-default"><a href="{{ url('detail/'. $detail->id .'/edit') }}">编辑</a></li>-->
                                             <li class="am-secondary"><a href="{{ url('detail/'. $detail->id) }}">详情</a></li>
                                         </ul>
                                     </div>
                                     <div class="am-btn-toolbar am-hide-sm-only">
                                         <div class="am-btn-group am-btn-group-xs">
                                             <a class="am-btn am-btn-xs am-btn-warning detail-delete" href="javascript:void(0);" delete-uri="{{ url('detail/' . $detail->id) }}">删除</a>
-                                            <a class="am-btn am-btn-xs am-btn-default" href="{{ url('detail/'. $detail->id .'/edit') }}">编辑</a>
+                                            <!--<a class="am-btn am-btn-xs am-btn-default" href="{{ url('detail/'. $detail->id .'/edit') }}">编辑</a>-->
                                             <a class="am-btn am-btn-xs am-btn-secondary" href="{{ url('detail/'. $detail->id) }}">详情</a>
                                         </div>
                                     </div>

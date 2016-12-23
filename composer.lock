@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4e098d5831d8454fe86293b61f7d4158",
-    "content-hash": "7f57f2bedd1571aba3f2489b9d4df84c",
+    "hash": "a315736c081168b3bd1ef9fb68511ee9",
+    "content-hash": "4d81fa6396c06cc348473b547768474f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -816,6 +816,73 @@
             "time": "2016-10-19 20:38:46"
         },
         {
+            "name": "maatwebsite/excel",
+            "version": "2.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
+                "reference": "d9c398f7eba0ac9caf9c104dd0d55bd6a5ff231e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/Maatwebsite/Laravel-Excel/d9c398f7eba0ac9caf9c104dd0d55bd6a5ff231e.zip",
+                "reference": "d9c398f7eba0ac9caf9c104dd0d55bd6a5ff231e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.5",
+                "phpoffice/phpexcel": "1.8.*",
+                "tijsverkoyen/css-to-inline-styles": "~2.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "orchestra/testbench": "3.1.*",
+                "phpseclib/phpseclib": "~1.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "illuminate/http": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/queue": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/routing": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "illuminate/view": "5.0.*|5.1.*|5.2.*|5.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/Maatwebsite/Excel"
+                ],
+                "psr-0": {
+                    "Maatwebsite\\Excel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maatwebsite.nl",
+                    "email": "patrick@maatwebsite.nl"
+                }
+            ],
+            "description": "An eloquent way of importing and exporting Excel and CSV in Laravel 4 with the power of PHPExcel",
+            "keywords": [
+                "PHPExcel",
+                "batch",
+                "csv",
+                "excel",
+                "export",
+                "import",
+                "laravel"
+            ],
+            "time": "2016-12-09 19:11:09"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.22.0",
             "source": {
@@ -1232,6 +1299,63 @@
                 "random"
             ],
             "time": "2016-03-18 20:34:03"
+        },
+        {
+            "name": "phpoffice/phpexcel",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPOffice/PHPExcel.git",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/PHPOffice/PHPExcel/372c7cbb695a6f6f1e62649381aeaa37e7e70b32.zip",
+                "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+                "shasum": ""
+            },
+            "require": {
+                "ext-xml": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPExcel": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "http://blog.maartenballiauw.be"
+                },
+                {
+                    "name": "Mark Baker"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "http://blog.rootslabs.net"
+                },
+                {
+                    "name": "Erik Tilt"
+                }
+            ],
+            "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+            "homepage": "http://phpexcel.codeplex.com",
+            "keywords": [
+                "OpenXML",
+                "excel",
+                "php",
+                "spreadsheet",
+                "xls",
+                "xlsx"
+            ],
+            "time": "2015-05-01 07:00:55"
         },
         {
             "name": "pimple/pimple",
@@ -2446,6 +2570,53 @@
             "time": "2016-11-03 07:44:53"
         },
         {
+            "name": "tijsverkoyen/css-to-inline-styles",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tijsverkoyen/CssToInlineStyles.git",
+                "reference": "ab03919dfd85a74ae0372f8baf9f3c7d5c03b04b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/tijsverkoyen/CssToInlineStyles/ab03919dfd85a74ae0372f8baf9f3c7d5c03b04b.zip",
+                "reference": "ab03919dfd85a74ae0372f8baf9f3c7d5c03b04b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5 || ^7",
+                "symfony/css-selector": "^2.7|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8|5.1.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TijsVerkoyen\\CssToInlineStyles\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Tijs Verkoyen",
+                    "email": "css_to_inline_styles@verkoyen.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
+            "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
+            "time": "2016-09-20 12:50:39"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v1.1.1",
             "source": {
@@ -2490,53 +2661,6 @@
                 "environment"
             ],
             "time": "2015-05-30 15:59:26"
-        },
-        {
-            "name": "webpatser/laravel-uuid",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webpatser/laravel-uuid.git",
-                "reference": "6ed2705775e3edf066b90e1292f76f157ec00507"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/webpatser/laravel-uuid/6ed2705775e3edf066b90e1292f76f157ec00507.zip",
-                "reference": "6ed2705775e3edf066b90e1292f76f157ec00507",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "1.5.*",
-                "phpunit/phpunit": "4.7.*"
-            },
-            "suggest": {
-                "paragonie/random_compat": "A random_bytes Php 5.x polyfill."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Webpatser\\Uuid": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christoph Kempen",
-                    "email": "christoph@downsized.nl"
-                }
-            ],
-            "description": "Class to generate a UUID according to the RFC 4122 standard. Support for version 1, 3, 4 and 5 UUID are built-in.",
-            "homepage": "https://github.com/webpatser/uuid",
-            "keywords": [
-                "UUID RFC4122"
-            ],
-            "time": "2016-05-09 09:22:18"
         }
     ],
     "packages-dev": [
@@ -3920,6 +4044,53 @@
                 "validate"
             ],
             "time": "2016-11-23 20:04:58"
+        },
+        {
+            "name": "webpatser/laravel-uuid",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webpatser/laravel-uuid.git",
+                "reference": "6ed2705775e3edf066b90e1292f76f157ec00507"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/webpatser/laravel-uuid/6ed2705775e3edf066b90e1292f76f157ec00507.zip",
+                "reference": "6ed2705775e3edf066b90e1292f76f157ec00507",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "fzaninotto/faker": "1.5.*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "paragonie/random_compat": "A random_bytes Php 5.x polyfill."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Webpatser\\Uuid": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Kempen",
+                    "email": "christoph@downsized.nl"
+                }
+            ],
+            "description": "Class to generate a UUID according to the RFC 4122 standard. Support for version 1, 3, 4 and 5 UUID are built-in.",
+            "homepage": "https://github.com/webpatser/uuid",
+            "keywords": [
+                "UUID RFC4122"
+            ],
+            "time": "2016-05-09 09:22:18"
         }
     ],
     "aliases": [],

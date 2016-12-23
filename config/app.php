@@ -146,6 +146,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Overtrue\LaravelWechat\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -196,6 +197,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
 
         'Wechat' => Overtrue\LaravelWechat\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
